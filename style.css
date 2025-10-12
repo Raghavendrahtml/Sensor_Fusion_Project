@@ -1,0 +1,344 @@
+/* ==== TERMINATORS THEME ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Orbitron", "Segoe UI", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at center, #0b0b0b 0%, #000000 100%);
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+main, header, footer {
+  position: relative;
+  z-index: 10;
+}
+
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #111, #1b1b1b);
+  color: #ff2e2e;
+  text-align: center;
+  padding: 60px 20px;
+  border-bottom: 3px solid #ff2e2e;
+  text-shadow: 0 0 10px rgba(255, 46, 46, 0.8);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+  letter-spacing: 2px;
+}
+
+header h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #bbb;
+  margin-top: 8px;
+}
+
+/* Main content */
+main {
+  flex: 1;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Card sections */
+.card {
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid #333;
+  border-left: 5px solid #ff2e2e;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 10px rgba(255, 46, 46, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(255, 46, 46, 0.3);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: #ff2e2e;
+  text-shadow: 0 0 6px rgba(255, 46, 46, 0.6);
+}
+
+.card h4 {
+  color: #bbb;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.card p,
+.card ul {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.card ul {
+  list-style: square;
+  margin-left: 20px;
+}
+
+/* Links */
+a {
+  color: #ff4444;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px #ff4444;
+}
+
+/* Images */
+.image {
+  width: 100%;
+  max-width: 650px;
+  margin: 15px auto;
+  border-radius: 8px;
+  display: block;
+  box-shadow: 0 0 20px rgba(255, 46, 46, 0.25);
+}
+
+/* Footer */
+footer {
+  background: #111;
+  color: #999;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  border-top: 2px solid #ff2e2e;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  .card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 40px 15px;
+  }
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
+/* ===== TERMINATOR SCANNING LASER EFFECT ===== */
+header {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #ff2e2e 40%,
+    #ff0000 50%,
+    #ff2e2e 60%,
+    transparent 100%
+  );
+  box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+  animation: scan 3s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes scan {
+  0% {
+    top: -5%;
+  }
+  50% {
+    top: 100%;
+  }
+  100% {
+    top: -5%;
+  }
+}
+/* ===== FLOATING CROSSHAIR BACKGROUND ===== */
+.crosshair {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  border: 2px solid rgba(255, 46, 46, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px rgba(255, 46, 46, 0.3);
+  pointer-events: none;
+  z-index: 0;
+  animation: drift 12s ease-in-out infinite;
+}
+
+.crosshair::before,
+.crosshair::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 46, 46, 0.6);
+}
+
+.crosshair::before {
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(255, 46, 46, 0.6);
+}
+
+.crosshair::after {
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  box-shadow: 0 0 10px rgba(255, 46, 46, 0.6);
+}
+
+/* Floating motion */
+@keyframes drift {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-48%, -52%) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+}
+
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.3;
+  }
+}
+header h1 {
+  animation: flicker 3s infinite;
+}
+/* ===== ENHANCED TERMINATOR EFFECTS ===== */
+
+/* Add subtle scanning grid in background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+      0deg, transparent, transparent 20px, rgba(255,0,0,0.05) 20px, rgba(255,0,0,0.05) 21px
+    ),
+    repeating-linear-gradient(
+      90deg, transparent, transparent 20px, rgba(255,0,0,0.05) 20px, rgba(255,0,0,0.05) 21px
+    );
+  z-index: 1; /* behind main content but above crosshair */
+  pointer-events: none;
+  animation: move-grid 30s linear infinite;
+}
+
+@keyframes move-grid {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 100px 100px, 100px 100px; }
+}
+
+/* Header laser glow enhancement */
+header {
+  box-shadow: 0 0 20px #ff2e2e inset, 0 0 10px #ff0000;
+  position: relative; /* already has relative */
+}
+
+/* Intensify header flicker animation */
+@keyframes flicker-intense {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { 
+    opacity: 1; 
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff2e2e; 
+  }
+  20%, 24%, 55% { 
+    opacity: 0.3; 
+    text-shadow: none; 
+  }
+}
+
+header h1 {
+  animation: flicker-intense 2.5s infinite;
+}
+
+/* Optional scanning line over cards */
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg, transparent 0%, #ff2e2e 40%, #ff0000 50%, #ff2e2e 60%, transparent 100%
+  );
+  animation: card-scan 3s linear infinite;
+  opacity: 0.2;
+  pointer-events: none;
+  border-radius: 1px;
+}
+
+.card {
+  position: relative; /* for the scanning line */
+  box-shadow: 0 0 10px #ff2e2e, inset 0 0 5px #ff0000;
+}
+
+@keyframes card-scan {
+  0% { top: -5%; }
+  50% { top: 105%; }
+  100% { top: -5%; }
+}
+
+/* Footer pulsing glow */
+footer {
+  animation: pulse-glow 4s infinite;
+  box-shadow: 0 0 5px #ff2e2e;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px #ff2e2e; }
+  50% { box-shadow: 0 0 20px #ff2e2e; }
+}
+
+/* Optional: subtle crosshair flicker */
+.crosshair {
+  animation: drift 12s ease-in-out infinite, crosshair-flicker 3s infinite;
+}
+
+@keyframes crosshair-flicker {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
