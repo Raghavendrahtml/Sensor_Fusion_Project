@@ -65,20 +65,29 @@
 
 
      <section class="card">
-      <h3>Project 1 Overview</h3>
-      <p>
-       This project implements a <b>Bayesian Sensor Fusion system</b> for an iCreate3 robot to detect when it passes a door while wall-following. 
-       The robot uses sonar, IR, and bump sensors to estimate its distance from the wall and determine if it has just passed a door.
-      </p>
-      <p>
-       The fusion logic is implemented using a <b>Dynamic Bayesian Network (DBN)</b> that integrates multiple noisy sensor readings 
-       into a probabilistic belief map representing the robot’s environment and state transitions.
-      </p>
-      <p>
-       A <b>PID controller</b> ensures stable wall-following, maintaining a consistent distance from the wall while continuously collecting sensor data.
-      </p>
+       <h3>Project 2 Overview</h3>
+       <p>
+        Building upon the Bayesian Sensor Fusion framework from <b>Project 1</b>, <b>Project 2</b> extended the robot’s reasoning capabilities 
+        using a <b>Partially Observable Markov Decision Process (POMDP)</b>. The goal was to enable the iCreate3 robot to autonomously 
+        count three doors on its right side and stop at the third before returning to its starting position.
+       </p>
+       <p>
+        This milestone introduced <b>decision-making under uncertainty</b>. The robot relied on its sonar, IR, and bump sensors as partial observations 
+        of the environment. Using the 
+        <a href="https://digitalcommons.usf.edu/cgi/viewcontent.cgi?article=1113&context=fcrar" target="_blank">referenced POMDP model</a>, 
+        it computed optimal actions based on a <b>belief state</b>—a probability distribution over all possible environments.
+       </p>
+       <ul>
+       <li>Followed walls and tracked distance using PID control</li>
+       <li>Detected and counted doors through probabilistic reasoning</li>
+       <li>Stopped at the third door (cargo pickup event)</li>
+       <li>Returned autonomously to start position following a learned policy</li>
+       </ul>
+       <p>
+        This demonstrates how combining <b>Bayesian Networks</b> with <b>POMDP planning</b> enables both probabilistic perception 
+        and sequential decision-making for real-world robotics.
+       </p>
     </section>
-
 
     <section class="card">
       <h3>iCreate3 Robot Description</h3>
@@ -98,8 +107,7 @@
 
     <section class="card">
       <h3>Dynamic Bayesian Network Description</h3>
-      <img src="bayesian_network_diagram.png" alt="Bayesian Network Diagram" class="image" />
-  
+      
       <p>
         The Sensor Fusion Network comprises key variables to interpret its sensor readings as a distance to the wall. 
         The Hidden Markov Model uses this interpreted sonar reading to determine whether or not a door was passed 
@@ -147,4 +155,5 @@
   </footer>
 </body>
 </html>
+
 
